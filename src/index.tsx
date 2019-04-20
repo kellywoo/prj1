@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from '@app/App';
 import * as serviceWorker from './serviceWorker';
+import {spy} from 'mobx'
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
@@ -9,3 +11,9 @@ ReactDOM.render(<App />, document.getElementById('root'));
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+spy((event)=>{
+  if(event.type === 'action') {
+    console.log(`${event.name} with args:`, event.arguments);
+  }
+});
