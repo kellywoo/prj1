@@ -1,0 +1,130 @@
+%btn-size-common
+  display: inline-flex
+  justify-content: center
+  align-items: center
+  border-radius: 3px
+  line-height: normal
+  font-weight: 400
+  font-style: normal
+  transition: all 0.25s
+  text-align: center
+  white-space: nowrap
+  cursor: pointer
+  touch-action: manipulation
+  outline: none
+  user-select: none
+
+@mixin getButtonSize($height, $font)
+  height: $height
+  font-size: $font
+  padding: 0 $height/2
+
+@mixin btn_xl
+  @include getButtonSize(52px, 30px)
+@mixin btn_m
+  @include getButtonSize(48px, 16px)
+@mixin btn_a
+  @include getButtonSize(36px, 14px)
+@mixin btn_s
+  @include getButtonSize(30px, 13px)
+@mixin btn_xs
+  @include getButtonSize(20px, 12px)
+
+.btn-xl
+  @extend %btn-size-common
+  @include btn_xl
+.btn-m
+  @extend %btn-size-common
+  @include btn_m
+.btn-a
+  @extend %btn-size-common
+  @include btn_a
+.btn-s
+  @extend %btn-size-common
+  @include btn_s
+.btn-xs
+  @extend %btn-size-common
+  @include btn_xs
+
+// color and shape
+$btn_color: (sky: $color_sky, blue: $color_blue, gray: $color_gray, red: $color_red, orange: $color_orange, green: $color_green, yellow: $color_yellow)
+
+$grayline_border_color: #bcc0c7
+@mixin btn_grayline($name, $color)
+  .is-not-mobile
+    .btn-grayline-#{$name}
+      &:hover
+        background-color: tint($color, 20%)
+        border-color: tint($color, 20%)
+        color: #fff
+      &:hover
+        background-color: shade($color, 20%)
+        border-color: shade($color, 20%)
+        color: #fff
+
+  .btn-grayline-#{$name}
+    background-color: transparent
+    border: 1px solid $grayline_border_color
+    color: $color
+    &:disabled
+      background-color: transparent
+      border: 1px solid $grayline_border_color
+      color: $color
+      opacity: 0.33
+      cursor: not-allowed
+
+//&.active
+//  box-shadow: inset 0 3px 5px rgba(0,0,0,.125)
+//  background-color: #0090FF
+//  color: #fff
+
+@mixin btn_line($name, $color)
+  .is-not-mobile
+    .btn-line-#{$name}
+      &:hover
+        background-color: tint($color, 20%)
+        border-color: tint($color, 20%)
+        color: #fff
+
+  .btn-line-#{$name}
+    background-color: transparent
+    border: 1px solid $color
+    color: $color
+    &.is-active
+      background-color: shade($color, 20%)
+      border-color: shade($color, 20%)
+      color: #fff
+    &:disabled
+      background-color: transparent
+      border: 1px solid $color
+      color: $color
+      opacity: 0.33
+      cursor: not-allowed
+
+@mixin btn_default($name, $color)
+  .is-not-mobile
+    .btn-#{$name}
+      &:hover
+        background-color: tint($color, 20%)
+        border-color: tint($color, 20%)
+
+  .btn-#{$name}
+    background-color: $color
+    border: 0
+    color: #fff
+    &.is-active
+      background-color: shade($color, 20%)
+      border-color: shade($color, 20%)
+      color: #fff
+
+    &:disabled
+      background-color: $color
+      border: 1px solid transparent
+      opacity: 0.33
+      cursor: not-allowed
+
+
+@each $name, $color in $btn_color
+  @include btn_grayline($name, map-get($btn_color, $name))
+  @include btn_line($name, map-get($btn_color, $name))
+  @include btn_default($name, map-get($btn_color, $name))

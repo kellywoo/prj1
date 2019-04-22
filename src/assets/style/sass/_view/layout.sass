@@ -1,0 +1,63 @@
+$appLayoutGutter: 15px
+$appHeaderHeight: 5.8rem
+$appFooterHeight: 3rem
+
+.app-section
+  padding: 100px 0
+.app-gutter
+  max-width: 1040px
+  margin: 0 auto
+
+.achieve-section
+  display: flex
+  align-items: stretch
+  justify-content: space-between
+
+.achieve-left
+  background-image: url('~@image/triple@2x.png')
+  background-size: 100%
+  background-repeat: no-repeat
+  width: 400px
+  min-height: (2028px / 6)
+  padding-top: 280px
+  text-align: center
+  font-size: 15px
+  color: rgba($color_58, 0.7)
+.achieve-right
+  width: 450px
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+.achieve-index
+  font-size: 3.6rem
+  letter-spacing: -0.5px
+
+  .list > li + li
+    margin-top: 1rem
+
+.achieve-award
+  .list
+    display: flex
+    justify-content: space-between
+    margin: 0 0 40px
+    & > li
+      display: flex
+      word-break: keep-all
+      align-items: center
+      min-height: 64px
+      padding: 0 0 0 64px
+      background-repeat: no-repeat
+      background-size: 54px 54px
+      background-position: 0 center
+      font-size: 1.4rem
+      font-weight: 700
+      line-height: 1.6
+      color: rgba($color_58, 0.8)
+
+@keyframes downToUp
+  from
+    opacity: 0
+    transform: translateY(30px)
+  to
+    opacity: 1
+    transform: translateY(0)

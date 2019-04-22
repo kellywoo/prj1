@@ -1,4 +1,4 @@
-import {httpClient} from '@app/http/http-client';
+import {httpClient} from '@app/util/http-client';
 import {Observable} from 'rxjs';
 
 const url = 'https://api.unsplash.com/search/photos';
