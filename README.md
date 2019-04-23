@@ -1,5 +1,7 @@
 # [triple](https://triple.guide/intro/)
 
+node version: 10.15.0
+
 ## typescript & sass & asset path
 
 It is based on create-react-app and it's eject command.

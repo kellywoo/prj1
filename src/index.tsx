@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AppComponent from '@app/app.component';
 import * as serviceWorker from './serviceWorker';
+import AppComponent from '@app/app.component';
 // import {spy} from 'mobx'
 
 ReactDOM.render(<AppComponent />, document.getElementById('root'));
