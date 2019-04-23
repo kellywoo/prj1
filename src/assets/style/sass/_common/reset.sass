@@ -6,9 +6,16 @@ $font_color: #333
 html
   font-family: Arial, 'Microsoft JhengHei', 'Malgun Gothic', sans-serif, fontAwesome
   color: $app_color
-  font-size: 10px
+  font-size: 7px
   line-height: 1.5
   -webkit-font-smoothing: antialiased
+  @include minCell
+    font-size: 8px
+  @include minTap
+    font-size: 9px
+  @include minPc
+    font-size: 10px
+
 
 html *
   box-sizing: border-box

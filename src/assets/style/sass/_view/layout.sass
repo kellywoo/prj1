@@ -12,26 +12,44 @@ $appFooterHeight: 3rem
   display: flex
   align-items: stretch
   justify-content: space-between
-
+  @include maxPc
+    display: block
 .achieve-left
+  transition: all 0.5s ease-in-out
+  $min_height: ceil(2028px / 6)
   background-image: url('~@image/triple@2x.png')
   background-size: 100%
   background-repeat: no-repeat
   width: 400px
-  min-height: (2028px / 6)
-  padding-top: 280px
+  min-height: $min_height
+  padding-top: $min_height - 60px
   text-align: center
-  font-size: 15px
+  font-size: 1.5rem
   color: rgba($color_58, 0.7)
+  @include maxPc
+    $min_height: ceil(2028px / 12)
+    display: block
+    margin: 0 auto 0
+    width: 200px
+    font-size: 1.4rem
+    min-height: $min_height
+    padding-top: $min_height - 30px
+    padding-bottom: 50px
 .achieve-right
-  width: 450px
+  max-width: 450px
   display: flex
+  margin-left: 20px
   flex-direction: column
   justify-content: space-between
+  @include maxPc
+    text-align: center
+    max-width: none
+    margin-right: 20px
 .achieve-index
   font-size: 3.6rem
   letter-spacing: -0.5px
-
+  @include maxPc
+    font-size: 2.8rem
   .list > li + li
     margin-top: 1rem
 
@@ -39,20 +57,30 @@ $appFooterHeight: 3rem
   .list
     display: flex
     justify-content: space-between
-    margin: 0 0 40px
+    margin: 45px #{$appLayoutGutter * -1} 38px
+    @include maxPc
+      width: 100%
+      max-width: 450px
+      margin: 35px auto 38px
+      justify-content: center
     & > li
       display: flex
       word-break: keep-all
       align-items: center
       min-height: 64px
-      padding: 0 0 0 64px
+      padding: 0 0 0 60px
       background-repeat: no-repeat
       background-size: 54px 54px
       background-position: 0 center
       font-size: 1.4rem
+      margin: 10px #{$appLayoutGutter} 0
       font-weight: 700
       line-height: 1.6
       color: rgba($color_58, 0.8)
+      @include maxPc
+        font-size: 1.25rem
+        background-size: 45px 45px
+        padding-left: 50px
 
 @keyframes downToUp
   from

@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import '@style/App.sass';
+import '@style/app.sass';
 import MainComponent from '@app/component/views/main/main.component';
 import {BrowserRouter, Route} from 'react-router-dom';
 
-class App extends Component {
+class AppComponent extends Component {
   render() {
     return (
       <div className="app">
@@ -19,4 +19,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default AppComponent;

@@ -10,13 +10,13 @@ export default class MainRewardsComponent extends Component {
 
   state = {
     rewards: [
-      {title: '2018 구글 플레이스토어 올해의 앱 최우수상 수상', img: require('@image/' + 'play-store@2x.png')},
-      {title: '2018 애플 앱스토어 오늘의 여행업 선정', img: require('@image/' + 'app-store@2x.png')},
+      {title: '2018 구글 플레이스토어<br/> 올해의 앱 최우수상 수상', img: require('@image/' + 'play-store@2x.png')},
+      {title: '2018 애플 앱스토어<br /> 오늘의 여행업 선정', img: require('@image/' + 'app-store@2x.png')},
     ],
     records: [
-      {source: '%% 명의 사용자', num: 3500000},
-      {source: '%% 개의 리뷰', num: 210000},
-      {source: '%% 개의 저장', num: 6500000}
+      {source: '<strong>%% 명</strong>의 사용자', num: 3500000},
+      {source: '<strong>%% 개</strong>의 리뷰', num: 210000},
+      {source: '<strong>%% 개</strong>의 저장', num: 6500000}
     ]
   };
 
@@ -79,7 +79,7 @@ export default class MainRewardsComponent extends Component {
   countingFrame(n: number){
     n = +n.toFixed(3);
     return this.state.records.map((record)=>{
-      return record.source.replace('%%', `<strong>${this.formatNumber(record.num, record.num * n)}</strong>`)
+      return record.source.replace('%%', `${this.formatNumber(record.num, record.num * n)}`)
     })
   }
 
@@ -142,9 +142,7 @@ export default class MainRewardsComponent extends Component {
               <ul className="list">
                 {this.state.rewards.map((reward, i) => {
                   return (
-                    <li key={i} style={{backgroundImage: `url(${reward.img}`}}>
-                      {reward.title}
-                    </li>)
+                    <li key={i} style={{backgroundImage: `url(${reward.img}`}} dangerouslySetInnerHTML={{__html: reward.title}} />)
                 })
                 }
               </ul>
